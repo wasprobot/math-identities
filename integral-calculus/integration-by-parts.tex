@@ -1,25 +1,35 @@
 \documentclass{article}
-\usepackage{amsmath,amssymb}
+\usepackage{amsthm}
+\usepackage{amsmath}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+
+\newtheorem{claim}{Claim}
+ 
 \begin{document}
 
-According to the \textbf{Power Rule of differentiation}:\\
+\begin{claim}
+    $ \int{uv^{\prime}} = uv - \int{vu^{\prime}} $
+\end{claim}
 
-$ \frac{d}{dx}uv = uv^{\prime} + vu^{\prime} $\\
+\begin{proof}
+    According to the Power Rule of differentiation:\\
 
-$ \implies d(uv) = uv^{\prime}dx + vu^{\prime}dx $\\
+    $ \frac{d}{dx}uv = uv^{\prime} + vu^{\prime} $\\
 
-Integrating both sides:\\
+    $ \implies d(uv) = uv^{\prime}dx + vu^{\prime}dx $\\
 
-$ \int{d(uv)} = \int{uv^{\prime}dx} + \int{vu^{\prime}dx} $\\
+    Integrating both sides:\\
 
-$ \implies uv = \int{uv^{\prime}dx} + \int{vu^{\prime}dx} $\\
+    $ \int{d(uv)} = \int{uv^{\prime}dx} + \int{vu^{\prime}dx} $\\
 
-Rearranging the expressions:\\
+    $ \implies uv = \int{uv^{\prime}dx} + \int{vu^{\prime}dx} $\\
 
-\[
- \boxed{\int{uv^{\prime}}=uv-\int{vu^{\prime}}}
-\]\\
+    Rearranging the expressions:\\
 
-This identity is also known as \textbf{Integration By Parts}
+    $ \int{uv^{\prime}} = uv - \int{vu^{\prime}} $\\
+
+    This identity is also known as Integration By Parts.
+\end{proof}
 
 \end{document}
