@@ -1,0 +1,35 @@
+\documentclass{article}
+\usepackage{amsthm}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+
+\newtheorem{claim}{Claim}
+ 
+\begin{document}
+ 
+\begin{claim}
+    The number of subsets of a set with $n$ elements
+    is $2^n$.
+\end{claim}
+
+\begin{proof}
+    Let a set $S$ be defined as
+    $ S = \{a_1,a_2,a_3,a_4,\dots,a_n\}. $\\
+
+    The number of subsets of $S$ will be formed by 
+    making a choice of whether to include the elements
+    ($a_1, a_2$, etc.). Therefore, the number of choices
+    per element of $S$ are:\\
+
+    \begin{tabular}{|c|c|c|c|c|}
+        \hline
+        $a_1$ & $a_2$ & $a_3$ & \dots & $a_n$ \\
+        \hline
+        $2$ & $2$ & $2$ & \dots & $2$\\
+        \hline
+    \end{tabular}\\\\
+
+    $ = 2^n $ total choices.
+\end{proof}
+
+\end{document}
