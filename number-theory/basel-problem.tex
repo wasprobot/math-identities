@@ -1,0 +1,116 @@
+\documentclass{article}
+\usepackage{amsthm,amssymb}
+\usepackage[shortlabels]{enumitem}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+
+\newtheorem*{problem*}{Problem}
+\newtheorem*{solution*}{Solution}
+\renewcommand{\theenumi}{\alph{enumi}\)}
+
+\title{Euler's solution to the Basel Problem}
+\date{3/4/2020}
+
+\begin{document}
+\maketitle
+ 
+\begin{problem*}
+    Find the infinite sum
+    $1+\frac{1}{4}+\frac{1}{9}+\frac{1}{16}+\dots$.
+\end{problem*}
+
+\begin{solution*}
+    To solve this problem Euler first factorizes a quadratic, $P(x)$ 
+    with $P(0)=1$ and solutions $x=a$ and $x=b$ as:\\
+    
+    $P(x)=(1-\frac{x}{a})(1-\frac{x}{b})$\\
+    
+    Similarly, a third-degree polynomial, $P(x)$ 
+    with $P(0)=1$ and solutions $x=a,x=b$ and $x=c$ 
+    can be factorized as:\\
+    
+    $P(x)=(1-\frac{x}{a})(1-\frac{x}{b})(1-\frac{x}{c})$\\
+
+    In general, an infinite-degree polynomial, $P(x)$ 
+    with $P(0)=1$ and solutions $x=a,x=b,x=c\dots$
+    can be factorized as:\\
+    
+    $P(x)=(1-\frac{x}{a})(1-\frac{x}{b})(1-\frac{x}{c})\dots$\\
+
+    Then he considers an infinite-degree polynomial:\\
+
+    $P(x) = 1-\frac{x^2}{3!}+\frac{x^4}{5!}-\frac{x^6}{7!}\dots$\\
+    
+    Since $P(0)=1$, to find the solutions to $P(x)$:\\
+
+    $0 = 1-\frac{x^2}{3!}+\frac{x^4}{5!}-\frac{x^6}{7!}\dots$
+    or $0 = \frac{x(1-\frac{x^2}{3!}+\frac{x^4}{5!}-\frac{x^6}{7!}\dots)}{x}$\\
+    
+    $\therefore \frac{sin(x)}{x} = 0$, 
+    using Newton's expansion of $sin(x)$.\\
+
+    To solve for $x$, we consider all cases where $sin(x)=0$
+    i.e., $x=0, \pm\pi, \pm2\pi, \pm3\pi\dots$\\
+
+    Omitting $x=0$ since that will render the fraction 
+    $\frac{sin(x)}{x}$ undefined, we obtain that $x=\pm\pi, \pm2\pi, \pm3\pi\dots$
+    are solutions to the infinite-degree polynomial, $P(x)$. 
+    Thus the polynomial can be factorized as follows:\\
+
+    $P(x) = (1-\frac{x}{\pi})(1-\frac{x}{-\pi})
+    (1-\frac{x}{2\pi})(1-\frac{x}{-2\pi})
+    (1-\frac{x}{3\pi})(1-\frac{x}{-3\pi})\dots$\\
+
+    $= (1-\frac{x}{\pi})(1+\frac{x}{\pi})
+    (1-\frac{x}{2\pi})(1+\frac{x}{2\pi})
+    (1-\frac{x}{3\pi})(1+\frac{x}{3\pi})\dots$\\
+
+    Multilying the terms in pairs, we obtain:\\
+    
+    $P(x) = [1-\frac{x^2}{(\pi)^2}]
+    [1-\frac{x^2}{(2\pi)^2}]
+    [1-\frac{x^2}{(3\pi)^2}]\dots$\\
+    
+    $= [1-\frac{x^2}{\pi^2}]
+    [1-\frac{x^2}{4\pi^2}]
+    [1-\frac{x^2}{9\pi^2}]\dots$\\
+
+    Multilying the terms out for the first two terms::\\
+    
+    $P(x) = 1 + x^2 [
+        -\frac{1}{\pi^2}
+        -\frac{1}{4\pi^2}
+        -\frac{1}{9\pi^2}\dots]
+    $ + higher terms of $x$\\
+    
+    $= 1 - x^2 [
+        \frac{1}{\pi^2}
+        +\frac{1}{4\pi^2}
+        +\frac{1}{9\pi^2}\dots]
+    $ + higher terms of $x$\\
+    
+    Equating to the definition of $P(x)$ 
+    and comparing coefficients of $x^2$,\\
+
+    $\frac{1}{3!} = 
+        \frac{1}{\pi^2}
+        +\frac{1}{4\pi^2}
+        +\frac{1}{9\pi^2}\dots$\\
+        
+    $\frac{1}{3!} = 
+        \frac{1}{\pi^2}(1
+        +\frac{1}{4}
+        +\frac{1}{9}
+        +\frac{1}{16}\dots
+        )$\\
+    
+    Therefore the original sum,\\
+
+    $S=1
+    +\frac{1}{4}
+    +\frac{1}{9}
+    +\frac{1}{16}\dots
+    =\frac{\pi^2}{6}$.
+\end{solution*}
+
+\end{document}
