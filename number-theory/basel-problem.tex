@@ -1,5 +1,5 @@
 \documentclass{article}
-\usepackage{amsthm,amssymb}
+\usepackage{amsthm,amssymb,amsmath}
 \usepackage[shortlabels]{enumitem}
 \usepackage[utf8]{inputenc}
 \usepackage[english]{babel}
@@ -16,101 +16,132 @@
  
 \begin{problem*}
     Find the infinite sum
-    $1+\frac{1}{4}+\frac{1}{9}+\frac{1}{16}+\dots$.
+    $S=1+\frac{1}{4}+\frac{1}{9}+\frac{1}{16}+\dots$.
 \end{problem*}
 
 \begin{solution*}
-    To solve this problem Euler first factorizes a quadratic, $P(x)$ 
-    with $P(0)=1$ and solutions $x=a$ and $x=b$ as:\\
+    To solve this problem Euler first shows
+    a general way to factorize a \textbf{general polynomial of infinite-degree}
+    (one that has infinitely many terms in a variable,
+    with powers of the variables raised to $\infty$).
+    But first let's take a \textbf{quadratic} 
+    (a polynimial in degree 2) as an example and 
+    try to factorize it. Suppose the quadratic $P(x)$ 
+    satisfies $P(0)=1$ and has for solutions, 
+    $x=a$ and $x=b$. It is easy to see that $P(x)$
+    can be factorized as:\\
     
     $P(x)=(1-\frac{x}{a})(1-\frac{x}{b})$\\
     
-    Similarly, a third-degree polynomial, $P(x)$ 
+    Similarly, a \textbf{third-degree polynomial}, $P(x)$ 
     with $P(0)=1$ and solutions $x=a,x=b$ and $x=c$ 
     can be factorized as:\\
     
     $P(x)=(1-\frac{x}{a})(1-\frac{x}{b})(1-\frac{x}{c})$\\
 
-    In general, an infinite-degree polynomial, $P(x)$ 
-    with $P(0)=1$ and solutions $x=a,x=b,x=c\dots$
-    can be factorized as:\\
+    Now he chooses a \textbf{general polynomial of infinite-degree}, 
+    $P(x)$ with $P(0)=1$ and solutions $x=a,x=b,x=c\dots$
+    and extends the same factorization as:\\
     
     $P(x)=(1-\frac{x}{a})(1-\frac{x}{b})(1-\frac{x}{c})\dots$\\
 
-    Then he considers an infinite-degree polynomial:\\
+    Keeping that factorization technique in mind,
+    he then considers an infinite-degree polynomial:\\
 
-    $P(x) = 1-\frac{x^2}{3!}+\frac{x^4}{5!}-\frac{x^6}{7!}\dots$\\
+    \begin{equation}
+        P(x) = 1-\frac{x^2}{3!}+\frac{x^4}{5!}-\frac{x^6}{7!}\dots
+    \end{equation}\\
+
+
+    To solve for $x$, a common technique is to equate 
+    $P(x)$ to zero. Therefore:\\
     
-    Since $P(0)=1$, to find the solutions to $P(x)$:\\
+    \begin{align*}
+        P(x) &= 1-\frac{x^2}{3!}+\frac{x^4}{5!}-\frac{x^6}{7!}\dots &= 0\\
+        & \frac{x(1-\frac{x^2}{3!}+\frac{x^4}{5!}-\frac{x^6}{7!}\dots)}{x} &= 0
+        && \text{(multiplying both numerator and denominator by } x)\\
+        & \frac{x-\frac{x^3}{3!}+\frac{x^5}{5!}-\frac{x^7}{7!}\dots}{x} &= 0\\
+        \therefore P(x) &= \frac{\sin(x)}{x} &= 0
+        && \text{(using Newton's expansion of sine)}\\
+    \end{align*}
 
-    $0 = 1-\frac{x^2}{3!}+\frac{x^4}{5!}-\frac{x^6}{7!}\dots$
-    or $0 = \frac{x(1-\frac{x^2}{3!}+\frac{x^4}{5!}-\frac{x^6}{7!}\dots)}{x}$\\
+    \textbf{Newton's expansion of sine} states that:
+    $sin(x) = \frac{x-\frac{x^3}{3!}+\frac{x^5}{5!}-\frac{x^7}{7!}\dots}{x}$.\\
     
-    $\therefore \frac{sin(x)}{x} = 0$, 
-    using Newton's expansion of $sin(x)$.\\
-
     To solve for $x$, we consider all cases where $sin(x)=0$
     i.e., $x=0, \pm\pi, \pm2\pi, \pm3\pi\dots$\\
 
-    Omitting $x=0$ since that will render the fraction 
+    Omitting $x=0$ as that will render the fraction 
     $\frac{sin(x)}{x}$ undefined, we obtain that $x=\pm\pi, \pm2\pi, \pm3\pi\dots$
-    are solutions to the infinite-degree polynomial, $P(x)$. 
-    Thus the polynomial can be factorized as follows:\\
+    are solutions to the infinite-degree polynomial, $P(x)$.\\
 
-    $P(x) = (1-\frac{x}{\pi})(1-\frac{x}{-\pi})
-    (1-\frac{x}{2\pi})(1-\frac{x}{-2\pi})
-    (1-\frac{x}{3\pi})(1-\frac{x}{-3\pi})\dots$\\
+    Further, since $P(0)=1-0+0-0+\dots=1$, 
+    it falls in the category of the \textbf{general polynomials of infinite-degree} above.
+    Therefore the polynomial can be factorized as follows:\\
 
-    $= (1-\frac{x}{\pi})(1+\frac{x}{\pi})
-    (1-\frac{x}{2\pi})(1+\frac{x}{2\pi})
-    (1-\frac{x}{3\pi})(1+\frac{x}{3\pi})\dots$\\
+    \begin{align*}
+        P(x) &= (1-\frac{x}{\pi})(1-\frac{x}{-\pi})
+        (1-\frac{x}{2\pi})(1-\frac{x}{-2\pi})
+        (1-\frac{x}{3\pi})(1-\frac{x}{-3\pi})\dots\\
+        &= (1-\frac{x}{\pi})(1+\frac{x}{\pi})
+        (1-\frac{x}{2\pi})(1+\frac{x}{2\pi})
+        (1-\frac{x}{3\pi})(1+\frac{x}{3\pi})\dots\\
+        &= [1-\frac{x^2}{\pi^2}]
+        [1-\frac{x^2}{4\pi^2}]
+        [1-\frac{x^2}{9\pi^2}]\dots
+        &&\text{(by multilying the terms in pairs)}\\
+    \end{align*}    
 
-    Multilying the terms in pairs, we obtain:\\
-    
-    $P(x) = [1-\frac{x^2}{(\pi)^2}]
-    [1-\frac{x^2}{(2\pi)^2}]
-    [1-\frac{x^2}{(3\pi)^2}]\dots$\\
-    
-    $= [1-\frac{x^2}{\pi^2}]
-    [1-\frac{x^2}{4\pi^2}]
-    [1-\frac{x^2}{9\pi^2}]\dots$\\
+    Multilying the terms out for the first two degrees of $x$:\\
 
-    Multilying the terms out for the first two terms::\\
+    \begin{align*}        
+        P(x) &= 1 + x^2 [
+            -\frac{1}{\pi^2}
+            -\frac{1}{4\pi^2}
+            -\frac{1}{9\pi^2}\dots]
+        &&\text{+ terms with higher degrees of $x$}\\
+        &= 1 - x^2 [
+            \frac{1}{\pi^2}
+            +\frac{1}{4\pi^2}
+            +\frac{1}{9\pi^2}\dots]
+        &&\text{+ terms with higher degrees of $x$}\\
+    \end{align*}
     
-    $P(x) = 1 + x^2 [
-        -\frac{1}{\pi^2}
-        -\frac{1}{4\pi^2}
-        -\frac{1}{9\pi^2}\dots]
-    $ + higher terms of $x$\\
-    
-    $= 1 - x^2 [
-        \frac{1}{\pi^2}
-        +\frac{1}{4\pi^2}
-        +\frac{1}{9\pi^2}\dots]
-    $ + higher terms of $x$\\
-    
-    Equating to the definition of $P(x)$ 
-    and comparing coefficients of $x^2$,\\
+    Equating to the definition of $P(x)$ from (1) above,\\
 
-    $\frac{1}{3!} = 
-        \frac{1}{\pi^2}
-        +\frac{1}{4\pi^2}
-        +\frac{1}{9\pi^2}\dots$\\
-        
-    $\frac{1}{3!} = 
-        \frac{1}{\pi^2}(1
-        +\frac{1}{4}
-        +\frac{1}{9}
-        +\frac{1}{16}\dots
-        )$\\
-    
-    Therefore the original sum,\\
+    \begin{align*}        
+        P(x) &= 1-\frac{x^2}{3!}+\frac{x^4}{5!}-\frac{x^6}{7!}\dots\\
+            &= 1 - x^2 [
+                \frac{1}{\pi^2}
+                +\frac{1}{4\pi^2}
+                +\frac{1}{9\pi^2}\dots]
+            &&\text{+ terms with higher degrees of $x$}\\
+    \end{align*}
 
-    $S=1
-    +\frac{1}{4}
-    +\frac{1}{9}
-    +\frac{1}{16}\dots
-    =\frac{\pi^2}{6}$.
+    \begin{align*}        
+        \frac{1}{3!} &= 
+            \frac{1}{\pi^2}
+            +\frac{1}{4\pi^2}
+            +\frac{1}{9\pi^2}\dots
+        &&\text{(by equating the coefficients of $x^2$)}\\
+        \frac{1}{3!} &= 
+            \frac{1}{\pi^2}(1
+            +\frac{1}{4}
+            +\frac{1}{9}
+            +\frac{1}{16}\dots
+            )\\
+    \end{align*}
+    
+    Therefore the original sum,
+    \begin{center}
+        \boxed{
+            S=1
+            +\frac{1}{4}
+            +\frac{1}{9}
+            +\frac{1}{16}\dots
+            =\frac{\pi^2}{6}
+            }
+    \end{center}
 \end{solution*}
 
 \end{document}
