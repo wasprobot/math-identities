@@ -1,0 +1,96 @@
+\documentclass{article}
+\usepackage{amsthm,amssymb,amsmath}
+\usepackage[shortlabels]{enumitem}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+
+\newtheorem*{problem*}{Problem}
+\newtheorem*{solution*}{Solution}
+\renewcommand{\theenumi}{\alph{enumi}\)}
+\newcommand{\Mod}[1]{\ (\mathrm{mod}\ #1)}
+
+\title{Divisibility by 9}
+\date{6/22/2020}
+
+\begin{document}
+\maketitle
+ 
+\begin{problem*}
+    How to show that a number is divisible by $9$?
+\end{problem*}
+
+\begin{solution*}
+    Let's look at division. When a number $a$ is divided by another
+    number $x$ and leaves $b$ as remainder, we can write
+    \begin{equation}
+        a = n \cdot x + b
+    \end{equation}
+    
+    where $n$ is called the "quotient". But if we just focus on the 
+    remainder, we call this relationship \textbf{modular equivalence}
+    and write it as $a \equiv b \Mod x$. Now consider another such statement,
+    \begin{equation}
+        c = m \cdot x + d
+    \end{equation}
+
+    or in terms of \textbf{modular equivalence},
+    $c \equiv d \Mod x$
+
+    On adding both sides of $(1)$ and $(4)$, we get 
+    $(a+c) = (n+m) \cdot x + (b+d)$. It looks like
+    when the number $(a+c)$ is divided by $x$, it leaves
+    $(b+d)$ as the remainder. This property can be written as
+    \begin{equation}
+        (a+c) \equiv (b+d) \Mod x
+    \end{equation}
+
+    If we multiplied both sides of $(1)$ by a constant number, $k$
+    we would see $ak = nk \cdot x + bk$ and again, focussing just on the remainder:
+    \begin{equation}
+        ak \equiv bk \Mod x
+    \end{equation}
+
+    We shall use $(3)$ and $(4)$ as \textbf{properties of modular equivalence}.\\
+
+    Now let's consider all the non-negative powers of $10$
+    with respect to divisibility by $9$. We will see that
+    \begin{align*}
+        1 &\equiv 1 \Mod 9\\
+        10 &\equiv 1 \Mod 9\\
+        100 &\equiv 1 \Mod 9\\
+        10^n &\equiv 1 \Mod 9\\
+    \end{align*}
+
+    Multiplying all these modular equivalences by arbitrary
+    non-negative constants $a_0, a_1, \dots a_n$ and using
+    \textbf{property $(4)$} above:
+    \begin{align*}
+        1\cdot{a_0} &\equiv a_0 \Mod 9\\
+        10\cdot{a_1} &\equiv a_1 \Mod 9\\
+        100\cdot{a_2} &\equiv a_2 \Mod 9\\
+        10^n\cdot{a_n} &\equiv a_n \Mod 9\\
+    \end{align*}
+
+    Adding all these equivalences using \textbf{property $(3)$}:
+    \begin{equation*}
+        1\cdot{a_0} + 10\cdot{a_1} + 100\cdot{a_2} + \dots + 10^n\cdot{a_n} 
+        \equiv
+        (a_0 + a_1 + a_2 + \dots + a_n) \Mod 9\\
+    \end{equation*}
+
+    Well! the left hand side of the above equivalence is nothing
+    but a representation of a $(n+1)$-digit number 
+    (e.g., $76932 = 
+    1\cdot{2} + 10\cdot{3} + 100\cdot{9} + 1000\cdot{6} + 10000\cdot{7}$)
+    and the right hand side is just the sum of its digits!\\
+
+    Hence the equivalence statement above shows that 
+    \textbf{when dividing a number by $9$ its remainder 
+    is the same as that when dividing the sum of its digits}.\\
+    
+    E.g., $76932$ is divisible by $9$
+    since the sum of its digits, $27$ is (and that is because 
+    so is the sum of its digits!)
+\end{solution*}
+
+\end{document}
