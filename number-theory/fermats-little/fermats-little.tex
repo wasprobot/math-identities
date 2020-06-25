@@ -1,0 +1,41 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage{amsmath,amssymb}
+\usepackage{mathtools}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{tikz}
+\usepackage{amsthm}
+
+\newtheorem*{conjecture}{Conjecture}
+\newtheorem*{corollary}{Corollary}
+\newtheorem*{proposition}{Proposition}
+
+\title{Fermat's Little Theorem}
+
+\begin{document}
+
+\maketitle
+
+\begin{conjecture}
+If $a,p \in \mathbb{N}$, $p$ is prime and $gcd(a,p) = 1$
+then $a^{p-1} \equiv 1 \pmod p$.
+\end{conjecture}
+
+\begin{proof}
+We claim that the first $(p-1)$ multiples of $a=\{a,2a,3a,\dots,(p-1)a\}$, when divided by $p$, have distinct, non-zero remainders. Let $\mathbb{Z}_{p-1}$ represent the set of first $(p-1)$ positive integers. Let $k \in \mathbb{Z}_{p-1}$. If $ka$ had a zero remainder on division by $p$, it would mean $p \mid ka$.\\
+
+We will prove that this means $p \mid k$ or $p \mid a$.
+Since $p\mid ka$ there must exist $x \in \mathbb{Z}$ so that $px=ka$. Assume $p \nmid k$.
+
+\end{proof}
+
+% \begin{corollary}
+%     If $p \in \mathbb{N}$ is prime and $p \ge 7$
+%     then $p$ has a multiple whose digits are $p-1$ $1$'s.
+% \end{corollary}
+    
+% \input{repunit}
+    
+\end{document}

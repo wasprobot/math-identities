@@ -1,0 +1,106 @@
+\documentclass{article}
+\usepackage{amsthm,amssymb,amsmath}
+\usepackage[shortlabels]{enumitem}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+
+\newtheorem*{problem*}{Problem}
+\newtheorem*{solution*}{Solution}
+\renewcommand{\theenumi}{\alph{enumi}\)}
+\newcommand{\Mod}[1]{\ (\mathrm{mod}\ #1)}
+
+\title{Divisibility by 11}
+\date{6/23/2020}
+
+\begin{document}
+\maketitle
+ 
+\begin{problem*}
+    How to show that a number is divisible by $11$?
+\end{problem*}
+
+\begin{solution*}
+    Let's look at division. When a number $a$ is divided by another
+    number $x$ and leaves $b$ as remainder, we can write
+    \begin{equation}
+        a = n \cdot x + b
+    \end{equation}
+    
+    where $n$ is called the "quotient". But if we just focus on the 
+    remainder, we call this relationship \textbf{modular equivalence}
+    and write it as $a \equiv b \Mod x$. Now consider another such statement,
+    \begin{equation}
+        c = m \cdot x + d
+    \end{equation}
+
+    or in terms of \textbf{modular equivalence},
+    $c \equiv d \Mod x$\\
+
+    On adding both sides of $(1)$ and $(2)$, we get 
+    $(a+c) = (n+m) \cdot x + (b+d)$. It looks like
+    when the number $(a+c)$ is divided by $x$, it leaves
+    $(b+d)$ as the remainder. This property can be written as
+    \begin{equation}
+        (a+c) \equiv (b+d) \Mod x
+    \end{equation}
+
+    If we multiplied both sides of $(1)$ by a constant number, $k$
+    we would see $ak = nk \cdot x + bk$ and again, focussing just on the remainder:
+    \begin{equation}
+        ak \equiv bk \Mod x
+    \end{equation}
+
+    We shall use $(3)$ and $(4)$ as \textbf{properties of modular equivalence}.\\
+
+    We see that $10 = 1 \cdot 11 + (-1)$ which, in terms of
+    \textbf{modular equivalence} we be written as 
+    $10 \equiv -1 \Mod {11}$.\\
+
+    Now let's consider all the non-negative powers of $10$
+    with respect to divisibility by $11$. We will see that
+    \begin{align*}
+        1 &\equiv 1 \Mod {11}\\
+        10 &\equiv -1 \Mod {11}\\
+        100 &\equiv 1 \Mod {11}\\
+        1000 &\equiv -1 \Mod {11}\\
+        10000 &\equiv 1 \Mod {11}\\
+        \vdots\\
+    \end{align*}
+
+    Multiplying all these modular equivalences by arbitrary
+    non-negative constants $a_0, a_1, \dots a_n$ and using
+    \textbf{property $(4)$} above:
+    \begin{align*}
+        1\cdot{a_0} &\equiv a_0 \Mod 9\\
+        10\cdot{a_1} &\equiv -a_1 \Mod 9\\
+        100\cdot{a_2} &\equiv a_2 \Mod 9\\
+        1000\cdot{a_3} &\equiv -a_3 \Mod 9\\
+        10000\cdot{a_4} &\equiv a_4 \Mod 9\\
+        \vdots\\
+        10^n\cdot{a_n} &\equiv \pm a_n \Mod 9\\
+    \end{align*}
+
+    Adding all these equivalences using \textbf{property $(3)$}:
+    \begin{equation*}
+        1\cdot{a_0} + 10\cdot{a_1} + 100\cdot{a_2} + 1000\cdot{a_3} + 10000\cdot{a_4} \dots + 10^n\cdot{a_n} 
+        \equiv
+        (a_0 - a_1 + a_2 - a_3 + a_4 \dots + a_n) \Mod {11}\\
+    \end{equation*}
+
+    Well! the left hand side of the above equivalence is nothing
+    but a representation of a $(n+1)$-digit number 
+    (e.g., $76934 = 
+    1\cdot{4} + 10\cdot{3} + 100\cdot{9} + 1000\cdot{6} + 10000\cdot{7}$)
+    and the right hand side is the alternating sum and difference
+    of its digits!\\
+
+    Hence the equivalence statement above shows that 
+    \textbf{when dividing a number by $11$ its remainder 
+    is the same as that when dividing the alternating difference ans sum
+    of its digits (starting with a difference)}.\\
+
+    E.g., $76934$ is divisible by $11$
+    since the sum of its digits is $11$
+\end{solution*}
+
+\end{document}
