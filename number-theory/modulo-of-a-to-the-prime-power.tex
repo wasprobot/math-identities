@@ -15,8 +15,8 @@
 \maketitle
  
 \begin{problem*}
-    To prove that for a prime, $n$ every 
-    integer smaller than $n$,
+    To prove that for a prime $n$, every 
+    integer smaller than $n$
     raised to the power $n$ is equivalent to itself
     modulo $n$ ($a^n \equiv a\mod{n}$).
     In other words $a^n$ when divided by $n$
@@ -25,36 +25,42 @@
 
 \begin{solution*}
     We prove this by induction. Using $a=1$ for the 
-    basis step, we can see that $1^n \equiv 1\mod{n}$
+    \textbf{basis step}, we can see that $1^n \equiv 1\mod{n}$
     (i.e., when divided by $n$, $1$ leaves the remainer $1$).\\
 
-    Now let's assume the claim is true for an arbitrary
-    $a=k$: I.e., $k^n \equiv k\mod{n}$, or for a quotient,
-    $q$
+    For the \textbf{induction step} assume the claim is 
+    true for an arbitrary $a=k<n$. I.e., $k^n \equiv k\mod{n}$, 
+    or for a quotient, $q$:
     \begin{equation}
         k^n = n\cdot{q} + k
     \end{equation}
 
-    Now consider the \textbf{binomial expansion}:
+    Now consider, for $k+1<n$, the \textbf{binomial expansion}:
     \begin{align*}
         (k+1)^n
         &= k^n + \sum_{r=1}^{n}{n\choose{r}}k^{n-r} + 1\\
-        &= n\cdot{q} + \sum_{r=1}^{n}{n\choose{r}}k^{n-r} + (k+1)
-        &\text{using (1)}
+        &= (n\cdot{q} + k) + \sum_{r=1}^{n}{n\choose{r}}k^{n-r} + 1
     \end{align*}
-    The binomial coefficient, $n\choose{r}$ is an integer.
-    However since $n$, being prime, can be extracted from 
-    it still leaving an integer $i_r$. Therefore
+    \begin{equation}
+        (k+1)^n = n\cdot{q} + \sum_{r=1}^{n}{n\choose{r}}k^{n-r} + (k+1)
+    \end{equation}
+    
+    The binomial coefficient, $n\choose{r}$
+    also expressed as $\frac{n!}{j}$ is an integer.
+    However $n$, being prime, can be extracted from 
+    it leaving behind an integer $i_r$ ($j$ does not divide $n$).
+    Thus (2) can be re-written as:
     \begin{align*}
         (k+1)^n
-        &= n\cdot{q} + \sum_{r=1}^{n}n{i_r}k^{n-r} + (k+1)\\
-        &= n\cdot{q} + n \sum_{r=1}^{n}{i_r}k^{n-r} + (k+1)\\
-        &= n\cdot{p} + (k+1)
-        & \text{for an integer $p$}\\
-        \therefore (k+1)^n &\equiv (k+1)\mod{n}
+        &= n \left(q + \sum_{r=1}^{n}{i_r}k^{n-r} \right) + (k+1)\\
+        &= n\cdot{p} + (k+1) & \text{for an integer $p$}
     \end{align*}
-    Thus we see that assuming the claim is 
-    true for $a=k$ we prove that it is true
-    for $a=k+1$. Hence it's true for all $a<n$
+
+    But since $k+1<n$, $(k+1)^n \equiv (k+1)\mod{n}$. 
+    In other words, $(k+1)^n$ when divided by $n$
+    leaves $k+1$ as remainder. Which means the claim is
+    true for $a=(k+1)<n$. And since we got to this conclusion
+    by assuming the claim were true for $a=k<n$ 
+    it must be true for all $a<n$.
 \end{solution*}
 \end{document}
