@@ -38,11 +38,11 @@
     Now consider, for $k+1<n$, the \textbf{binomial expansion}:
     \begin{align*}
         (k+1)^n
-        &= k^n + \sum_{r=1}^{n}{n\choose{r}}k^{n-r} + 1\\
-        &= (n\cdot{q} + k) + \sum_{r=1}^{n}{n\choose{r}}k^{n-r} + 1
+        &= k^n + \sum_{r=1}^{n-1}{n\choose{r}}k^{n-r} + 1\\
+        &= (n\cdot{q} + k) + \sum_{r=1}^{n-1}{n\choose{r}}k^{n-r} + 1
     \end{align*}
     \begin{equation}
-        (k+1)^n = n\cdot{q} + \sum_{r=1}^{n}{n\choose{r}}k^{n-r} + (k+1)
+        (k+1)^n = n\cdot{q} + \sum_{r=1}^{n-1}{n\choose{r}}k^{n-r} + (k+1)
     \end{equation}
     
     The binomial coefficient, $n\choose{r}$
@@ -52,8 +52,8 @@
     Thus (2) can be re-written as:
     \begin{align*}
         (k+1)^n
-        &= n \left(q + \sum_{r=1}^{n}{i_r}k^{n-r} \right) + (k+1)\\
-        &= n\cdot{p} + (k+1) & \text{for an integer $p$}
+        &= n \left(q + \sum_{r=1}^{n-1}{i_r}k^{n-r} \right) + (k+1)\\
+        &= n\cdot{p} + (k+1) & \text{for some integer $p$}
     \end{align*}
 
     But since $k+1<n$, $(k+1)^n \equiv (k+1)\mod{n}$. 
