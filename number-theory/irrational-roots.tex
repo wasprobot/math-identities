@@ -1,0 +1,53 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage{amsmath,amssymb}
+\usepackage{mathtools}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{tikz}
+\usepackage{amsthm}
+
+\newtheorem*{conjecture}{Conjecture}
+\newtheorem*{corollary}{Corollary}
+\newtheorem*{proposition}{Proposition}
+
+\title{Roots – rational or not}
+
+\begin{document}
+
+\maketitle
+
+\begin{conjecture}A natural root of a natural number is either
+    an integer or irrational.
+\end{conjecture}
+\begin{proof}Let's assume $a^{1/b}$ is rational, i.e.,
+    $$a^{1/b} = x/y$$
+    Raising both sides to the power $b$,
+    \begin{align*}
+        & a = x^b/y^b\\
+        \implies & x^b = a y^b\\
+    \end{align*}
+    
+    $x^2$ has pairs of prime factors
+    (each contributing to the individual $x$). Therefore
+    if $x^2$ is even, there must be another $2$ as its factor.
+    Hence $x$ must be even also.\\
+
+    All of $x$'s prime factors get "tripled" when when
+    calculate $x^3$. Therefore if $x^3$ is a multiple of $3$, 
+    it must be a factor of $x$ as well.\\
+
+    \textbf{If $b$ is prime}: Let all of $x$'s prime factors 
+    be $\{p_1,p_2,\dots,p_x\}$. If $x^b$ is a multiple of $b$, 
+    it must be a factor of $x$ as well.\\
+
+\end{proof}
+% \begin{corollary}
+%     If $p \in \mathbb{N}$ is prime and $p \ge 7$
+%     then $p$ has a multiple whose digits are $p-1$ $1$'s.
+% \end{corollary}
+    
+% \input{repunit}
+    
+\end{document}
