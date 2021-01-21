@@ -1,0 +1,49 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage{amsmath,amssymb}
+\usepackage{mathtools}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{tikz}
+\usepackage{amsthm}
+
+\newtheorem*{conjecture}{Conjecture}
+\newtheorem*{corollary}{Corollary}
+\newtheorem*{proposition}{Proposition}
+
+\title{$\mathbb{R}, \mathbb{Q}, \mathbb{N}, \mathbb{Z}$}
+
+\begin{document}
+
+\maketitle
+
+\begin{conjecture}The sum and product of two rational numbers
+is also  rational number.
+\end{conjecture}
+\begin{proof}If $a=\frac{a_1}{a_2}, b=\frac{b_1}{b_2} \in \mathbb{Q},
+    a_2 \ne{0}, b_2 \ne{0}$,\\
+    
+    $a+b=\frac{a_1b_2+b_2a_1}{a_2b_2}$. Since $a_2b_2 \ne{0}, (a_2b_2), (a_1b_2+b_2a_1) \in \mathbb{N}$,
+    $a+b$ is rational.\\
+
+    $ab=\frac{a_1b_1}{a_2b_2}$. Since $a_2b_2 \ne{0}, (a_1b_1), (a_2b_2) \in \mathbb{N}$,
+    $ab$ is rational.\\
+\end{proof}
+\begin{conjecture}If $a>b$ and $b>c$ then $a>c$.
+\end{conjecture}
+\begin{proof}Let $\mathbb{P}$ be the set of positive real numbers.
+    $a>b,b>c \implies (a-b),(b-c) \in \mathbb{P}$. 
+    \textbf{The Ordered Properties of $\mathbb{R}$} hold that $a,b\in\mathbb{P}\implies(a+b)\in\mathbb{P}$.\\
+
+    Therefore from the hypothesis $(a-b)+(b-c)=(a-c)\in\mathbb{P}$.
+    In other words, $a>c$.
+\end{proof}
+% \begin{corollary}
+%     If $p \in \mathbb{N}$ is prime and $p \ge 7$
+%     then $p$ has a multiple whose digits are $p-1$ $1$'s.
+% \end{corollary}
+    
+% \input{repunit}
+    
+\end{document}
