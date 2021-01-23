@@ -18,47 +18,51 @@
 
 \maketitle
 
-\begin{conjecture}A natural root of a natural number is either
+\begin{conjecture}A real root of a natural number is either
     an integer or irrational.
 \end{conjecture}
 \begin{proof}We begin by observing that if a prime number $y$ 
-    divides any power of a natural number $x^p$, it also divides 
+    divides any power $x^p$, it also divides 
     $x$ because otherwise it would have to be ``composed" of other
-    factors of $x$, which is impossible since $y$ is prime.\\
+    factors of $x$, which is impossible for a prime.\\
 
-    Now let $n,k\in\mathbb{N}$ with $k>1$. We will prove 
-    that $n^{1/k}$ is either an integer or an irrational number.\\
+    Now let $n,k\in\mathbb{N}$ with $k\ge{2}$. We will prove 
+    that $n^{1/k}$ is either an \textbf{integer} 
+    or an \textbf{irrational number}. The only other possibility
+    for a real root being a \textbf{strictly rational} number
+    (of the form $p/q: p,q\in \mathbb{N}$ with $gcd(p,q) = 1$).\\
 
     $n=1$ is trivial. For $n>1$ let's assume that 
-    $n^{1/k}$ is \textbf{rational}, i.e.,
+    $n^{1/k}$ is \textbf{strictly rational}. I.e.,
     
     $$n^{1/k} = \frac{p}{q}$$
 
-    with $gcd(p,q) = 1$.\\
-
-    This implies that $p^k = nq^k$ or $n$ divides $p^k$.\\
+    This implies that $p^k = nq^k$ or that 
+    \textbf{$n$ divides $p^k$}.\\
 
     \textbf{If $n$ is prime}
-    this also implies that $n$ divides $p$ (from the observation made above)
+    this also implies that $n$ divides $p$ (from the first observation we made)
     or that $p=np'$ for some factor $p'$.
-    Using this and the fact that $k>1$, the preceeding
+    Using this and the fact that $k\ge{2}$, the last
     equation can be written as $nq^k = n^2{p'}^2 p^{k-2}$
     or $q^k = n{p'}^2 p^{k-2}$, i.e. $n$ divides $q^k$. 
     But we know this means $n$ divides $q$. Hence we see that
     $p$ and $q$ have a common divisor $n(>1)$. This is a contradiction
-    to our assumption that $gcd(p,q)=1$.\\
+    to the definition of \textbf{strictly rational} numbers:
+    $gcd(p,q)=1$.\\
 
     \textbf{If $n$ is not prime}
-    let $n_a,n_b,n_c\dots$ be all prime factors of $n$
+    let $n_a,n_b,n_c\dots$ be all the prime factors of $n$
     and $n' = n_a \cdot n_b \cdot n_c\dots$ be their product.
     Since $n$ divides $p^k$ so does $n'$ and so do each of $n_a,n_b,n_c\dots$.
-    Again from the observation above, each of $n_a,n_b,n_c\dots$
+    Again, from the observation above each of $n_a,n_b,n_c\dots$
     also divide $p$, and so does $n'$. In the same way as above
     we can show that now $p$ and $q$ share a common divisor
-    $n'(>1)$ which is contrary to the assumption above.\\
+    $n'(>1)$ which is, again, contrary to the assumption above.\\
 
-    So we see that in all exhaustive cases, $n^{1/k}$ cannot be
-    rational. So it must be either an integer or an irrational number.
+    In this way we see that in no case can $n^{1/k}$ be
+    \textbf{strictly rational}. 
+    So it must be either an integer or an irrational number.
 \end{proof}
 % \begin{corollary}
 %     If $p \in \mathbb{N}$ is prime and $p \ge 7$
