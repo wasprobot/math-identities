@@ -21,27 +21,44 @@
 \begin{conjecture}A natural root of a natural number is either
     an integer or irrational.
 \end{conjecture}
-\begin{proof}Let's assume $a^{1/b}$ is rational, i.e.,
-    $$a^{1/b} = x/y$$
-    Raising both sides to the power $b$,
-    \begin{align*}
-        & a = x^b/y^b\\
-        \implies & x^b = a y^b\\
-    \end{align*}
+\begin{proof}We begin by observing that if a prime number $y$ 
+    divides any power of a natural number $x^p$, it also divides 
+    $x$ because otherwise it would have to be ``composed" of other
+    factors of $x$, which is impossible since $y$ is prime.\\
+
+    Now let $n,k\in\mathbb{N}$ with $k>1$. We will prove 
+    that $n^{1/k}$ is either an integer or an irrational number.\\
+
+    $n=1$ is trivial. For $n>1$ let's assume that 
+    $n^{1/k}$ is \textbf{rational}, i.e.,
     
-    $x^2$ has pairs of prime factors
-    (each contributing to the individual $x$). Therefore
-    if $x^2$ is even, there must be another $2$ as its factor.
-    Hence $x$ must be even also.\\
+    $$n^{1/k} = \frac{p}{q}$$
 
-    All of $x$'s prime factors get "tripled" when when
-    calculate $x^3$. Therefore if $x^3$ is a multiple of $3$, 
-    it must be a factor of $x$ as well.\\
+    with $gcd(p,q) = 1$.\\
 
-    \textbf{If $b$ is prime}: Let all of $x$'s prime factors 
-    be $\{p_1,p_2,\dots,p_x\}$. If $x^b$ is a multiple of $b$, 
-    it must be a factor of $x$ as well.\\
+    This implies that $p^k = nq^k$ or $n$ divides $p^k$.\\
 
+    \textbf{If $n$ is prime}
+    this also implies that $n$ divides $p$ (from the observation made above)
+    or that $p=np'$ for some factor $p'$.
+    Using this and the fact that $k>1$, the preceeding
+    equation can be written as $nq^k = n^2{p'}^2 p^{k-2}$
+    or $q^k = n{p'}^2 p^{k-2}$, i.e. $n$ divides $q^k$. 
+    But we know this means $n$ divides $q$. Hence we see that
+    $p$ and $q$ have a common divisor $n(>1)$. This is a contradiction
+    to our assumption that $gcd(p,q)=1$.\\
+
+    \textbf{If $n$ is not prime}
+    let $n_a,n_b,n_c\dots$ be all prime factors of $n$
+    and $n' = n_a \cdot n_b \cdot n_c\dots$ be their product.
+    Since $n$ divides $p^k$ so does $n'$ and so do each of $n_a,n_b,n_c\dots$.
+    Again from the observation above, each of $n_a,n_b,n_c\dots$
+    also divide $p$, and so does $n'$. In the same way as above
+    we can show that now $p$ and $q$ share a common divisor
+    $n'(>1)$ which is contrary to the assumption above.\\
+
+    So we see that in all exhaustive cases, $n^{1/k}$ cannot be
+    rational. So it must be either an integer or an irrational number.
 \end{proof}
 % \begin{corollary}
 %     If $p \in \mathbb{N}$ is prime and $p \ge 7$
