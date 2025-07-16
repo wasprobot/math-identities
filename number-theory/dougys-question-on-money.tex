@@ -1,0 +1,114 @@
+\documentclass{article}
+\usepackage{amsthm,amssymb,amsmath,multirow,multicol}
+\usepackage[shortlabels]{enumitem}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+
+\newtheorem*{problem*}{Problem}
+\newtheorem*{solution*}{Solution}
+\renewcommand{\theenumi}{\alph{enumi}\)}
+
+\title{Dougy's question on money}
+\date{7/16/2025}
+
+\begin{document}
+\maketitle
+
+\begin{problem*}
+    Doug asked a very interesting question: \textbf{How many coins 
+    do we need to carry if we were to be able to pay 
+    any denomination from 0 to 99 cents?}\\
+
+    I took the liberty to change his question into something 
+    completely different: \textbf{Given we have enough coins of each kind
+    (Quarters, Dimes, Nickles, and Pennies) in how many different ways 
+    can we represent money from 1 to 100 cents?}\\
+
+    So here we will examine my question, and ignore his.
+\end{problem*}
+
+\begin{solution*}
+    We introduce a function, $C(100, Q, D, N, P)$,
+    representing the number of such combinations,
+    using quarters (Q), dimes (D), nickles (N), and pennies (P)\\
+
+    We make some simple observations. One is that $C(0,\cdots)=1$: 
+    There is one combination to pay 0 cents (that is to use no coins!)\\
+    
+    Also $C(100,Q)=1$ (use 4 quarters), and so on\dots\\
+
+    As we begin to dive deeper, we see that $C(5, N, P)=2$, the
+    two combinations that can be visualized with the table:\\
+
+    \begin{tabular}{|c|c|}
+        \hline
+        N & P \\
+        \hline
+        0 & 5\\
+        \hline
+        1 & 0\\
+        \hline
+    \end{tabular}\\\\
+
+    And what if we were to represent 100 cents, 
+    using only Nickles and Pennies? $C(100, N, P)=21$, because:\\
+
+    \begin{tabular}{|c|c|}
+        \hline
+        N & P \\
+        \hline
+        0 & 100\\
+        \hline
+        1 & 95\\
+        \hline
+        2 & 90\\
+        \hline
+        \dots & \dots\\
+        \hline
+        20 & 0\\
+        \hline
+    \end{tabular}\\\\  
+
+    Similarly, $C(100, D, N, P)=$, because:\\
+
+    \begin{tabular}{|n|p|s}
+        \hline
+        N & P \\
+        \hline
+        0 & 100\\
+        \hline
+        1 & 95\\
+        \hline
+        2 & 90\\
+        \hline
+        \dots & \dots\\
+        \hline
+        20 & 0\\
+        \hline
+    \end{tabular}\\\\  
+
+    \begin{tabular}{|c|c|c|}
+        \hline
+        D & N & P \\
+        \hline
+        0 & \multicolumn{2}{|c|}{
+            \multirow{3}{*}{
+                \begin{tabular}{|l|r|}
+                    \hline
+                    Sub-A & 10 \\
+                    \hline
+                    Sub-B & 20 \\
+                    \hline
+                \end{tabular}%
+            }}%
+        } \\
+        \cline{1-1} % Line only for Column 1
+        0 & \multicolumn{2}{|c|}{} \\
+        \cline{1-1} % Line only for Column 1
+        0 & \multicolumn{2}{|c|}{} \\
+        \hline
+    \end{tabular}
+
+\end{solution*}
+
+\end{document}
