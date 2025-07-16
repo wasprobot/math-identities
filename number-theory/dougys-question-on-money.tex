@@ -1,5 +1,5 @@
 \documentclass{article}
-\usepackage{amsthm,amssymb,amsmath,multirow,multicol}
+\usepackage{amsthm,amssymb,amsmath,multirow,multicol,booktabs}
 \usepackage[shortlabels]{enumitem}
 \usepackage[utf8]{inputenc}
 \usepackage[english]{babel}
@@ -48,8 +48,9 @@
         \hline
         1 & 0\\
         \hline
-    \end{tabular}\\\\
+    \end{tabular}
 
+    \newpage
     And what if we were to represent 100 cents, 
     using only Nickles and Pennies? $C(100, N, P)=21$, because:\\
 
@@ -69,45 +70,72 @@
         \hline
     \end{tabular}\\\\  
 
-    Similarly, $C(100, D, N, P)=$, because:\\
+    Now let's explore $C(100, D, N, P)$:\\
 
-    \begin{tabular}{|n|p|s}
+    \begin{tabular}{|c|c|c|c|}
+        \toprule
+        D & N & P & Notice\\
         \hline
-        N & P \\
+        \textbf{0} & 0 & 100 & \multirow{5}{*}{{
+            $C(100, N, P)=21$ combinations
+        }} \\
+        \cline{1-3}
+        0 & 1 & 95 & \\
+        \cline{1-3}
+        0 & 2 & 90 & \\
+        \cline{1-3}
+        0 & \dots & \dots & \\
+        \cline{1-3}
+        0 & 20 & 0 & \\
+
+        \bottomrule
+        \textbf{1} & 0 & 90 & \multirow{3}{*}{{
+            $C(90, N, P)$ combinations
+        }} \\
+        \cline{1-3}
+        1 & 1 & 85 & \\
+        \cline{1-3}
+        1 & \dots & \dots & \\
+
+        \bottomrule
+        \textbf{2} & \multicolumn{3}{|c|}{{$C(80, N, P)$}} \\
+
+        \bottomrule
+        \textbf{3} & \multicolumn{3}{|c|}{{$C(70, N, P)$}} \\
+
+        \bottomrule
+        \textbf{\dots} & \multicolumn{3}{|c|}{{\dots}} \\
+
+        \bottomrule
+        \textbf{10} & \multicolumn{3}{|c|}{{$$C(0, N, P)=1$$}} \\
+
+        \bottomrule
+    \end{tabular}\\\\
+
+    Hence we that $C(100, D, N, P)$ depends on various 
+    $C(100, N, P)$, $C(90, N, P)$, etc.
+    Similarly, it's easy to see that:\\
+
+    \begin{tabular}{|c|c|c|c|}
         \hline
-        0 & 100\\
-        \hline
-        1 & 95\\
-        \hline
-        2 & 90\\
-        \hline
-        \dots & \dots\\
-        \hline
-        20 & 0\\
-        \hline
+        Q & D & N & P \\
+        \bottomrule
+        \textbf{0} & \multicolumn{3}{|c|}{{$$C(100, D, N, P)$$}} \\
+
+        \bottomrule
+        \textbf{1} & \multicolumn{3}{|c|}{{$$C(75, D, N, P)$$}} \\
+
+        \bottomrule
+        \textbf{2} & \multicolumn{3}{|c|}{{$$C(50, D, N, P)$$}} \\
+
+        \bottomrule
+        \textbf{3} & \multicolumn{3}{|c|}{{$$C(25, D, N, P)$$}} \\
+
+        \bottomrule
+        \textbf{4} & \multicolumn{3}{|c|}{{$$C(0, D, N, P)=1$$}} \\
+
+        \bottomrule
     \end{tabular}\\\\  
-
-    \begin{tabular}{|c|c|c|}
-        \hline
-        D & N & P \\
-        \hline
-        0 & \multicolumn{2}{|c|}{
-            \multirow{3}{*}{
-                \begin{tabular}{|l|r|}
-                    \hline
-                    Sub-A & 10 \\
-                    \hline
-                    Sub-B & 20 \\
-                    \hline
-                \end{tabular}%
-            }}%
-        } \\
-        \cline{1-1} % Line only for Column 1
-        0 & \multicolumn{2}{|c|}{} \\
-        \cline{1-1} % Line only for Column 1
-        0 & \multicolumn{2}{|c|}{} \\
-        \hline
-    \end{tabular}
 
 \end{solution*}
 
